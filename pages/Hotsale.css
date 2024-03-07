@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .bg_im{
+    background-image: url("../IMG/bg6.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.header{
+    background-color: rgb(0,0,0,0.5);
+}
+
+.page{
+width: 1300px;
+margin: 0px auto;
+position: relative;
+}
+
+.menu{
+display: flex;
+justify-content: space-between;
+align-items: center;
+align-items: center;
+}
+
+.menu .Nhap{
+    height: 40px;
+    position: relative;
+}
+
+.menu .Nhap input::placeholder{
+    color: #ccc;
+}
+
+.menu .Nhap input{
+    width: 400px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: rgb(0, 0, 0,0);
+    color: white;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.menu .Nhap button{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    box-sizing: border-box;
+    border: 0px solid white;
+    background-color: rgb(0, 0, 0,0);
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.menu .logo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.menu .logo a{
+    text-decoration: none;
+}
+
+.menu .logo h1{
+    margin-top: 13px;
+    color: white;
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.menu .contact{
+    display: flex;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+.menu2 {
+    background-color:rgb(0,0,0,0.6);
+    /* position: sticky;
+    top: 0px; */
+}
+
+.menu2 ul{
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+.menu2 ul li{
+    width: 150px;
+    text-align: center;
+    font-size: 20px;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.menu2 ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu2 ul li a:hover{
+    color: #2377ff;
+}
+
+.link_page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 270px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.link_page a{
+    text-decoration: none;
+}
+
+.link_page a p{
+    color: #000;
+}
+
+.link_page p{
+    color: #2377ff;
+}
+
+.link_page a p:hover{
+    text-decoration: underline;
+    color: #2377ff;
+}
+
+.box_sale{
+    margin: 20px 0px;
+
+}
+
+.box_sale h2{
+    color:#337ab7;
+    font-size: 40px;    
+}
+
+.box_sale .box {
+    height: 300px;
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.box_sale .box .image{
+    width: 450px;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.box_sale .box:hover img{
+    transform: scale(1.1);
+    transition: all 0.4s;
+}
+
+.box_sale .box .image img{
+    width: 450px;
+    height: 300px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.box_sale .box .infor_tour{
+    width: 700px;
+    padding: 20px 20px;
+    line-height: 1.6;
+}
+
+.box_sale .box .infor_tour h2{
+    font-size: 26px;
+}
+
+.box_sale .box .infor_tour h2 a{
+    color: #000;
+    text-decoration: none;
+}
+
+.box_sale .box .infor_tour h2 a:hover{
+    color: #00a6ff;
+}
+
+.box_sale .box .infor_tour p{
+    color: rgb(60, 60, 60);
+    font-size: 19px;
+}
+
+.box_sale .box .infor_tour i span{
+    color: #000;
+    font-size: 30px;
+}
+
+.box_sale .box .infor_tour .Phuongtien {
+    display: flex;
+    justify-content: left;
+}
+
+.box_sale .box .infor_tour .Phuongtien p {
+    color: #000;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.box_sale .box .cost{
+    background-color:#00a6ff;
+    width: 200px;
+    height: 170px;
+    border-radius: 15px;
+    margin: 20px 20px;
+    padding: 20px 20px;
+    color: #fff;
+    text-align: center;
+
+}
+
+
+.box_sale .box .cost .gia_tu{
+    font-size: 23px;
+    margin: 5px 0px;
+}
+
+.box_sale .box .cost .gia_sale{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 5px 0px;
+}
+
+.box_sale .box .cost .gia_goc{
+    font-size: 26px;
+    text-decoration: line-through;
+    margin: 5px 0px;
+}
+
+.box_sale .box .cost button{
+    width: 150px;
+    height: 50px;
+    background-color: #00a6ff;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    font-size: 23px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.box_sale .box .cost button:hover{
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 15px;
+    font-size: 23px;
+    color: #000;
+    cursor: pointer;
+}
+
+.xemthem{
+    display: flex;
+    justify-content: center;
+}
+
+.xemthem button{
+    width: 180px;
+    height: 60px;
+    font-size: 25px;
+    border-radius: 15px;
+    background-color: #00a6ff;
+    border: 2px solid #fff;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.xemthem button:hover{
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 15px;
+    color:#00a6ff;
+    cursor: pointer;
+}
+
+.List_bandau {
+	display: none;
+	height: 0px;
+}
+.xuat_hien {
+	display: block;
+	height: 1000px;
+}
+.bien_mat {
+	display: none;
+}
+
+.footer{
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.footer .ft_header{
+    margin-top: 50px;
+    padding: 15px 0px;
+    font-size: 20px;
+}
+
+.footer .ft_header ul{
+    width: 220px;
+    
+}
+
+.footer .footer_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    position: relative;
+}
+
+.footer .footer_content .inf_logo{
+    display: flex;
+    justify-content: left;
+    padding: 12px 0px;
+}
+
+.footer .footer_content .inf_logo h1{
+
+    margin-top: 13px;
+    color: white;
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.footer .footer_content .contact{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.footer .footer_content .contact i{
+    margin-right: 5px;
+}
+
+.footer .footer_content li{
+    list-style: none;
+    height: 28px;
+}
+
+.footer .footer_content li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .footer_content li a:hover{
+    color: #337ab7;
+
+}
+
+.footer .footer_content .icon a{
+    padding-right: 15px;
+}
+
+.footer .footer_content .pay{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.footer .footer_content .logo_pay img{
+    background-color: #fff;
+}

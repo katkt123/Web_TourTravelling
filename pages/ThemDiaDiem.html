@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="ThemDiaDiem.css">
+</head>
+<body>
+	<div class="to">
+		<h2>Thêm địa điểm du lịch</h2>
+		<div class="form">
+			
+			<div class="input_infor">	
+				<div class="infor">
+					<div class="nhap">
+						<h3>Mã tour</h3>
+						<input type="text" id="IDDL">  
+					</div>
+					<div class="nhap">
+						<h3>Tên địa điểm</h3>
+						<input type="text" id="address">  
+					</div>
+					<div  class="nhap">
+						<h3>Khởi hành</h3>
+						<input type="text" id="start"> 
+					</div>
+					<div  class="nhap">
+						<h3>Thời gian</h3>
+						<input type="text" id="time"> 
+					</div>
+					<div  class="nhap">
+						<h3>Giá vé</h3>
+						<input type="text" id="price"> 
+					</div>
+				</div>
+				<div>
+					<div class="transport">
+						<h3>Phương tiện</h3>
+						<input type="checkbox" id="vehicle1" name="vehicle1" value="Airplane">
+						<label for="vehicle1"> Máy bay</label>
+						<input type="checkbox" id="vehicle2" name="vehicle2" value="Bus">
+						<label for="vehicle2"> Xe bus</label>
+						<input type="checkbox" id="vehicle3" name="vehicle3" value="waterShip">
+						<label for="vehicle3"> Tàu thủy</label>
+					</div>
+					<div class="nhap">
+						<h3>Mô tả</h3>
+						<textarea class="mota" name="" id="description" cols="30" rows="10"></textarea>
+					</div>
+					<div class="upload-container">
+						<h3>Thêm ảnh minh họa:</h3>
+						<div class="import_img">
+							<input type="file" id="myFileInput">
+						</div>
+					</div>
+					<button class="dk btn-TaiDL" type="submit">Thêm địa điểm</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let vehicle1 = document.getElementById("vehicle1");
+		let vehicle2 = document.getElementById("vehicle2");
+		let vehicle3 = document.getElementById("vehicle3");
+		let iDDL = document.getElementById("IDDL");
+		let address = document.getElementById("address");
+		let start = document.getElementById("start");
+		let price = document.getElementById("price");
+		let time = document.getElementById("time");
+		let pic = document.getElementById("pic");
+		let description = document.getElementById("description");
+		let btnDL = document.querySelector(".btn-TaiDL");
+
+		
+		function uploadFiles() {	
+			var files = document.getElementById('file_upload').files;
+			var filenames="";
+			if(files.length==0){
+				//alert("Please first choose or drop any file(s)...");
+				return;
+			}
+				   
+			for(var i=0;i<files.length;i++){
+				filenames+=files[i].name+"\n";
+			}
+			return files[0].name;
+			//alert("Selected file(s) :\n____________________\n"+filenames);
+		}
+		const reader = new FileReader();;
+		document.querySelector("#myFileInput").addEventListener("change", function (){
+			//console.log(this.file);
+			reader.readAsDataURL(this.files[0]);
+		});
+		
+		btnDL.addEventListener("click", (e) => {
+			e.preventDefault();
+			let VeDL = {
+				IDDL: iDDL.value,
+				address: address.value,
+				start: start.value,
+				price: price.value,
+				time: time.value,
+				pic: reader.result,
+				description: description.value,
+				vehicle1 : vehicle1.checked, 
+				vehicle2 : vehicle2.checked, 
+				vehicle3 : vehicle3.checked 
+			};
+			var DSVe = JSON.parse(localStorage.getItem("DSVe"));
+			if (DSVe)
+				DSVe.push(VeDL);
+			else
+				DSVe = [VeDL];
+			let json = JSON.stringify(DSVe);
+			if (!address.value || !start.value || !price.value ||  !time.value ) {
+				alert("Vui lòng nhập đầy đủ thông tin");
+			} else {
+				localStorage.setItem("DSVe", json);
+				console.log(VeDL);
+				alert("Thêm mới Thành Công");
+			}
+		});
+	</script>
+</body>
+</html>

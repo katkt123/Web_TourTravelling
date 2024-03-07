@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="pages/DuLich.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="pages/popup.css">
+        <link rel="stylesheet" href="pages/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <title>
+            Du lịch Travelling
+        </title>        
+    </head>
+    <body id="body-matisse">
+    <div class="bg_im">
+        <div class="header">
+            <div class="page">
+                <div class="menu">
+                    <div class="logo">
+                        <a href="index.html"><img src="IMG/Logo.png" alt="Logo" width="80px" height="80px"></a>
+                        <a href="index.html"><h1>Travelling</h1></a>
+                    </div>
+                    <div class="Nhap">
+
+                            <input type="text" placeholder="Search here..." id="searchInput">
+                            <button class="searchIp">
+                                <img src="Icon/search.png" width="20px" height="20px">
+                            </button>
+                            <script type="module">
+								import { removeAccents } from "/javascript/StartedData.js"
+								let searchInput = document.getElementById("searchInput");
+								let searchBtn = document.querySelector(".searchIp");
+
+								function upSearch(){
+									if (searchInput.value != "" && searchInput.value != ""){
+										var strSearch = removeAccents(searchInput.value);
+										let timK = JSON.stringify(strSearch.toUpperCase());
+										localStorage.setItem("timkiem", timK);
+										searchInput.value = "";
+										let url = "pages/SearchResult.html";
+     			 						window.location.href = url;
+									}
+								}
+								searchBtn.addEventListener("click", (e) => {
+									e.preventDefault();
+										upSearch();
+								});
+
+								$("#searchInput").on('keyup', function (e) {
+									if (e.key === 'Enter' || e.keyCode === 13) {
+										upSearch();
+									}
+								});
+							</script>
+
+                    </div>               
+                    <div class="market">
+                        <button id="ChuyenQuaVo">
+                            <span class="material-icons-outlined">
+                                local_grocery_store
+                            </span>
+                            <div class="number">
+                                <p id="numberHang">0</p>
+                            </div>                   
+                        </button>
+                    </div>
+                    <button id="tenDangNhap" type="submit" class="butn" onclick="openPopup()">Đăng Nhập</button>                    
+                    <button id="import_address" type="submit" class="butn_1" onclick="GoThemDiaDiem()">Thêm địa điểm</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu2">
+            <div class="page">
+                <div>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="./pages/GioiThieu.html">Giới thiệu</a></li>
+                        <li><a href="./pages/Hotsale.html">Tour khuyến mãi</a></li>
+                        <li><a href="./pages/DichVu.html">Dịch vụ</a></li>
+                        <li><a href="./pages/Lienhe.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+            <div class="page">
+                <div class="Slogan">
+                    <h1>Vì sao nên chọn Travelling</h1>
+                    <div class="slogan_content">
+                        <div class="infor">
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>1</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>TRANG DU LỊCH</h2>
+                                    </div>
+                                    <div>
+                                        <P>Số 1 tại Việt Nam</P>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>2</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>GIÁ CẢ</h2>
+                                    </div>
+                                    <div>
+                                        <P>Luôn có giá tốt và nhiều ưu đãi</P>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>3</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>THANH TOÁN</h2>
+                                    </div>
+                                    <div>
+                                        <P>Nhanh chóng, đơn giản và an toàn</P>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="infor">
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>4</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>ĐẶT TOUR</h2>
+                                    </div>
+                                    <div>
+                                        <P>Dễ dàng, thuận lợi</P>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>5</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>DỊCH VỤ</h2>
+                                    </div>
+                                    <div>
+                                        <P>Chăm sóc hàng đầu thế giới</P>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infor_content">
+                                <div class="number">
+                                    <h3>6</h3>
+                                </div>
+
+                                <div class="text">
+                                    <div>
+                                        <h2>HỖ TRỢ</h2>
+                                    </div>
+                                    <div>
+                                        <P>Hỗ trợ 24/7</P>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="tour">
+        <div class="page">
+            <div class="header_text">
+                <h2>New Tour</h2>
+            </div>
+            
+            <div>
+                <ul class="box" id="BoxDl">
+                    <li>
+                    
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic1.jpg" alt="Đà Nẵng">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Đà Nẵng</h3>
+                                <div class="money">
+                                    <p class="sale">5.700.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">7.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T2 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 3 ngày 2 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-19%</p>
+                            </div>
+
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Đà Nẵng')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                                
+                            </div>
+                        </div>                   
+                    </li>
+
+                    <li>
+                    
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic4.jpeg" alt="Seoul-Korea">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Seoul</h3>
+                                <div class="money">
+                                    <p class="sale">20.400.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">25.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T2 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 3 ngày 2 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-18%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Seoul')" ><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic3.jpg" alt="Hạ Long">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Vịnh Hạ Long</h3>
+                                <div class="money">
+                                    <p class="sale">8.300.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">10.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T5 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 4 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-17%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Vịnh Hạ Long')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic2.jpg" alt="Vũng Tàu">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Vũng Tàu</h3>
+                                <div class="money">
+                                    <p class="sale">4.500.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">6.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T4 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 2 ngày 1 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-25%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Vũng Tàu')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic6.jpg" alt="Thailand">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Thailand</h3>
+                                <div class="money">
+                                    <p class="sale">18.900.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_boat
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">22.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T3 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 3 ngày 2 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-14%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Thailand')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic5.jpg" alt="Tokyo_Japan">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Nhật Bản</h3>
+                                <div class="money">
+                                    <p class="sale">27.600.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">35.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T3 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 4 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-21%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Nhật Bản')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            <div class="header_text">
+                <h2>Tour Trong Nước</h2>
+            </div>
+            <div>
+                <ul class="box">
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic7.jpg" alt="Sapa">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Sapa</h3>
+                                <div class="money">
+                                    <p class="sale">8.400.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">12.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T5 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 3 ngày 2 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-30%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Sapa')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic8.jpg.crdownload" alt="Đà Lạt">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Đà Lạt</h3>
+                                <div class="money">
+                                    <p class="sale">14.300.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            two_wheeler
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">20.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T7 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 3 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-29%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Đà Lạt')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic9.jpg" alt="Phú Quốc">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Phú Quốc</h3>
+                                <div class="money">
+                                    <p class="sale">16.500.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">18.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: Chủ nhật hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 4 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-9%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Phú Quốc')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="header_text">
+                <h2>
+                    Tour Nước Ngoài
+                </h2>
+            </div>
+            <div>
+                <ul class="box">
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic10.jpg" alt="Taiwan">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Đài Loan</h3>
+                                <div class="money">
+                                    <p class="sale">24.700.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_boat
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">28.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T5 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 4 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-12%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Đài Loan')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic11.jpg" alt="Australia">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Australia</h3>
+                                <div class="money">
+                                    <p class="sale">30.500.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_boat
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">35.800.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: T2 hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 5 ngày 4 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-15%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Australia')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+    
+                    <li>
+                        <div>
+                            <div class="khung">
+                                <img src="IMG/Pic12.jpg" alt="France">
+                            </div>
+                            <div class="text">
+                                <h3>Du lịch Pháp</h3>
+                                <div class="money">
+                                    <p class="sale">28.400.000đ/khách</p>
+                                    <div class="traffic">
+                                        <i><span class="material-icons-outlined">
+                                            directions_car_filled
+                                            </span></i>
+                                        <i><span class="material-icons-outlined">
+                                            flight
+                                            </span></i>
+                                    </div>
+                                </div>
+                                <p class="cost">35.000.000đ</p>
+                                <div class="start">
+                                    <i><span class="material-icons-outlined">
+                                        calendar_month
+                                        </span></i>
+                                    <p>Khởi hành: Chủ nhật hàng tuần</p>
+                                </div>
+                                <div class="time">
+                                    <i><span class="material-icons-outlined">
+                                        schedule
+                                        </span></i>
+                                    <p>Thời gian: 4 ngày 3 đêm</p>
+                                </div>
+                            </div>
+                            <div class="hot_sale">
+                                <p>-19%</p>
+                            </div>
+                            <div class="set_product">
+                                <div class="add">
+                                    <button class="btn btn-VaoGio" onclick="themVaoGio('Pháp')"><span class="material-icons-outlined">
+                                        local_grocery_store
+                                    </span></button>
+                                </div>
+                                <div class="buy">
+                                    <button>
+                                        <p>Mua</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="album">
+                <div class="text">                    
+                    <div class="header_text">
+                        <h2>Album ảnh</h2>
+                    </div>
+                    <p>Những hình ảnh tuyệt đẹp sẽ giúp bạn có được trải nghiệm khi sử dụng dịch vụ của Travelling</p>
+                    <div class="album_img">
+                        <div class="img_first">
+                            <img src="IMG/album1.jpg" alt="">
+                        </div>
+                        <div class="img_last">
+                            <div class="anh">
+                                <img src="IMG/album.jpg" alt="">
+                                <img src="IMG/album2.jpg" alt="">
+                            </div>
+                            <div class="anh2">
+                                <img src="IMG/album3.jpg" alt="">
+                                <img src="IMG/album4.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            
+        </div>
+        
+    </div>
+    <div class="hot_location">
+        <div class="header_text">
+            <h2>Những địa điểm ưa thích</h2>
+        </div>
+        <div>
+            <p>Những địa điểm du lịch hot nhất trên thế giới. Tham khảo những nơi du lịch đặc sắc nhất cùng chúng tôi</p>
+        </div>
+        <div class="location">
+            <ul>
+                <li>
+                    <a href=""><img src="IMG/Asia.jpg" alt=""></a>
+                    <div class="icon">
+                        <i><span class="material-icons-outlined">
+                            location_on
+                            </span></i>
+                        <p>Châu Á</p>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><img src="IMG/Africa.jpg" alt=""></a>
+                    <div class="icon">
+                        <i><span class="material-icons-outlined">
+                            location_on
+                            </span></i>
+                            <p>Châu Phi</p>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><img src="IMG/American.jpg" alt=""></a>
+                    <div class="icon">
+                        <i><span class="material-icons-outlined">
+                            location_on
+                            </span></i>
+                            <p>Châu Mĩ</p>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><img src="IMG/Europe.jpg" alt=""></a>
+                    <div class="icon">
+                        <i><span class="material-icons-outlined">
+                            location_on
+                            </span></i>
+                            <p>Châu Âu</p>
+                    </div>
+                </li>
+                <li>
+                    <a href=""><img src="IMG/South America.jpg" alt=""></a>
+                    <div class="icon">
+                        <i><span class="material-icons-outlined">
+                            location_on
+                            </span></i>
+                            <p>Châu Đại Dương</p>
+                    </div>
+                </li>
+            </ul>
+                
+                
+                
+                
+                
+        </div>
+    </div>
+    
+    <div class="comment">
+        <div class="page">
+            <div class="header_text">
+                <h2>Khách hàng đánh giá</h2>
+            </div>
+            <div class="text">
+                <p>Sự hài lòng của khách hàng luôn là ưu tiên hàng đầu của chúng tôi</p>
+            </div>
+            <div class="avatar">
+                <img src="IMG/avatar1.jpg" alt="">
+                <div class="info">
+                    <h3>Hào Kiệt</h3>
+                    <p>Coder hàng đầu Việt Nam</p>
+                </div>
+            </div>
+            <div class="content">
+                <p>
+                    Tôi đã sử dụng rất nhiều dịch vụ du lịch khác nhau nhưng đối với tôi, Travelling là dịch vụ làm tôi hài lòng nhất cả về chất lượng và phục vụ. Với Travelling tôi luôn yên tâm về chất lượng của dịch vụ, cũng như sự chăm sóc tận tình, chu đáo trong suốt chuyến đi. Nếu bạn chưa trải nghiệm dịch vụ thì hãy thử ngay một lần nhé.
+                </p>
+            </div>
+        </div>       
+    </div>
+
+    <div class="footer">
+        <div class="page">
+            <div class="footer_content">
+                <div class="offer_information">
+                    <div class="text">
+                        <h2>Nhập thông tin và nhận các ưu đãi đến từ chúng tôi</h2>
+                        <p>Chúng tôi cam kết thông tin của khách hàng sẽ được bảo mật an toàn</p>
+                    </div>
+                    <div class="nhap">
+                        <form action="">
+                            <input type="text" placeholder="Họ tên">
+                            <input type="text" placeholder="Email">
+                            <button>Gửi</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="Information">
+                    <div>
+                        <div class="inf_logo">
+                            <img src="IMG/Logo.png" alt="Logo" width="80px" height="80px">
+                            <h1>Travelling</h1>
+                        </div>
+                        <ul>
+                           <li>
+                                    <div class="contact">
+                                        <i><span class="material-icons-outlined">
+                                            location_on
+                                            </span>
+                                        </i>
+                                        <p>157 Dương Bá Trạc, P.1, Q.8, TP.HCM</p>                                        
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact">
+                                        <i><span class="material-icons-outlined">
+                                            phone
+                                            </span>
+                                        </i>
+                                        <p>+84 947 947 704</p>                
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact">
+                                        <i><span class="material-icons-outlined">
+                                            contact_phone
+                                            </span>
+                                        </i>
+                                        <p>0393 656 955</p>
+                                    </div>
+                                </li>
+                                <li>                                   
+                                    <div class="contact"> 
+                                        <i><span class="material-icons-outlined">
+                                            email
+                                            </span>
+                                        </i>
+                                        <p>Nhom6Web@gmail.com</p>                                        
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="ft_header">
+                        <h4>
+                            Về chúng tôi
+                        </h4>
+                    </div>
+                    <ul>
+                        <li><a href="">Trang chủ</a></li>
+                        <li><a href="">Giới thiệu</a></li>
+                        <li><a href="">Tour khuyến mãi</a></li>
+                        <li><a href="">Dịch vụ</a></li>
+                        <li><a href="">Liên hệ</a></li>                    
+                    </ul>
+                </div>
+                <div>
+                    <div class="ft_header">
+                        <h4>
+                            Trong nước
+                        </h4>
+                    </div>
+                    <ul>
+                        <li><a href="">Sapa</a></li>
+                        <li><a href="">Đà Lạt</a></li>
+                        <li><a href="">Phú Quốc</a></li>
+                        <li><a href="">Vũng Tàu</a></li>
+                        <li><a href="">Đà Nẵng</a></li>        
+                        <li><a href="">Hải Phòng</a></li>                  
+                    </ul>
+                </div>
+                <div>
+                    <div class="ft_header">
+                        <h4>
+                            Ngoài nước
+                        </h4>
+                    </div>
+                    <ul>
+                        <li><a href="">Seoul</a></li>
+                        <li><a href="">Thailand</a></li>
+                        <li><a href="">Japan</a></li>
+                        <li><a href="">Đài Loan</a></li>
+                        <li><a href="">Australia</a></li>        
+                        <li><a href="">Pháp</a></li>                  
+                    </ul>
+                </div>
+                <div>
+                    <div class="ft_header">
+                        <h4>
+                            Kết nối với chúng tôi
+                        </h4>
+                    </div>
+                    <div class="icon">
+                        <a href="#"><img src="Icon/fb.png" alt="Facebook" width="35px"></a>
+                        <a href="#"><img src="Icon/twitter.png" alt="Twitter" width="35px"></a>
+                        <a href="#"><img src="Icon/ig.png" alt="Instagram" width="35px"></a>
+                        <a href="#"><img src="Icon/yt.png" alt="Youtube" width="35px"></a>
+                    </div>
+                    <div>
+                        <h4 class="pay">
+                            Chấp nhận thanh toán
+                        </h4>
+                        <div class="logo_pay">
+                            <img src="Icon/visa.png" alt="visa" width="51px" height="30px">
+                            <img src="Icon/vnpay.png" alt="vnpay" width="51px" height="30px">
+                            <img src="Icon/mtcard.png" alt="Master card" width="51px" height="30px">
+                            <img src="Icon/123pay.png" alt="Master card" width="51px" height="30px">
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+		<!--<img src="tick.png"> -->
+		<div class="container"  id="popupm1">
+			<div class="login"  id="popupm2">
+				<div class="title"  id="popupm3">
+					<h1 id="popupm">đăng nhập</h1>
+					<button>x</button>
+				</div>
+				<div class="input"  id="popupm4">
+					<form>
+						<div class="email"  id="popupm5">
+							<p  id="popupm6">Tên đăng nhập:</p>
+							<input type="text" name="popupm7" id="username" placeholder="Username">    
+						</div>
+		
+						<div class="pass" id="popupm8">
+							<p id="popupm9">Mật khẩu:</p>
+							<input type="password" name="popupm10" id="password" placeholder="Password">
+						</div>  
+
+						<div class="subpass" id="popupm11">
+                            <a href="pages/Sign_up.html" >Đăng ký</a>
+							<a href="#" id="popupm12">Quên mật khẩu?</a>
+						</div>
+						<div  class="buttonlogin"> 
+							<button id="popupm14" type="button" value="ĐĂNG NHẬP" class="btn btn-login">Đăng Nhập</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="icon_message">
+        <div class="message_bg">
+                <i><span class="material-icons-outlined">
+                    email
+                    </span>
+                </i>
+        </div>
+        <div class="box_chat">
+            <div class="admin_page">
+                <div class="admin">
+                    <img src="IMG/avatar1.jpg" alt="">
+                    <div class="infor_admin">
+                        <h3>Hào Kiệt</h3>
+                        <p>Đang hoạt động</p>
+                    </div>
+                </div>
+                <div class="out">
+                    <button><span class="material-icons-outlined">
+                        close
+                        </span></button>
+                </div>
+            </div>
+            <div class="show_text" id="chatBox">    
+                <div class="person">
+                    <img src="IMG/avatar1.jpg" alt="">
+                    <p>Chào mừng bạn đến với Travelling</p>
+                </div>
+            </div>
+            <div class="input_text">
+                <div>
+                    <i><span class="material-icons-outlined">
+                        add
+                        </span></i>
+                </div>
+                <div>
+                    <i><span class="material-icons-outlined">
+                        perm_media
+                        </span></i>
+                </div>
+                <div>
+
+                </div>
+                    <input type="text" placeholder="Aa" id="doanTinNhan">
+                    <button></button>
+                <div>
+                    <i><span class="material-icons-outlined GuiTinNhan">
+                        send
+                        </span>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/giohang.js"></script>
+    <script src="javascript/ThemDiaDiem.js"></script>
+    <script scr="javascript/chatBox.js"></script>
+	<script type='module'>
+   		import { showDivContent } from "/javascript/chatBox.js"
+	</script>
+
+    </body>
+</html>

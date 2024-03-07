@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+.header{
+    background-color: rgb(0,0,0,0.5);
+}
+
+.bg_im{
+    background-image: url("../IMG/bg6.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.page{
+width: 1300px;
+margin: 0px auto;
+position: relative;
+}
+
+.menu{
+display: flex;
+justify-content: space-between;
+align-items: center;
+align-items: center;
+}
+
+.menu .Nhap{
+    height: 40px;
+    position: relative;
+}
+
+.menu .Nhap input::placeholder{
+    color: #ccc;
+}
+
+.menu .Nhap input{
+    width: 400px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    outline: none;
+    background-color: rgb(0, 0, 0,0);
+    color: white;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.menu .Nhap button{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    box-sizing: border-box;
+    border: 0px solid white;
+    background-color: rgb(0, 0, 0,0);
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.menu .logo{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.menu .logo a{
+    text-decoration: none;
+}
+
+.menu .logo h1{
+    margin-top: 13px;
+    color: white;
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.menu .contact{
+    display: flex;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+.menu2 {
+    background-color:rgb(0,0,0,0.6);
+    /* position: sticky;
+    top: 0px; */
+}
+
+.menu2 ul{
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+.menu2 ul li{
+    width: 150px;
+    text-align: center;
+    font-size: 20px;
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.menu2 ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu2 ul li a:hover{
+    color: #2377ff;
+}
+
+.link_page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.link_page a{
+    text-decoration: none;
+}
+
+.link_page a p{
+    color: #000;
+}
+
+.link_page p{
+    color: #2377ff;
+}
+
+.link_page a p:hover{
+    text-decoration: underline;
+    color: #2377ff;
+}
+
+.lien_he .set_infor{
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.lien_he .input_infor{
+    width: 900px;
+}
+
+.lien_he .input_infor p{
+    font-size: 20px;
+}
+
+.lien_he .input_infor h2{
+    padding: 10px 0px;
+}
+
+.lien_he .input_infor form{
+    padding: 10px 0px;
+}
+
+.lien_he .input_infor .infor{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.lien_he .input_infor label{
+    font-weight: bold;
+}
+
+.lien_he .input_infor .infor input{
+    width: 430px;
+    height: 50px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+.lien_he .input_infor .noi_dung textarea{
+    width: 100%;
+    height: 180px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-top: 2px;
+
+}
+
+.lien_he .infor_travel{
+    width: 350px;
+
+}
+
+.infor_travel .logo_text{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.infor_travel .logo_text h1{
+    color: #000;
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.infor_travel .contact p{
+    font-size: 20px;
+    line-height: 1.2;
+    color: rgb(74, 74, 74);
+}
+
+.infor_travel .contact .icon{
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.infor_travel .contact .icon span{
+    font-size: 25px;
+}
+
+.infor_travel .contact .icon p{
+    margin: 5px 0px;
+    font-size: 18px;
+}
+
+.footer{
+    background-color: #2c3e50;
+    color: #fff;
+    height: 340px;
+}
+
+.footer .ft_header{
+    margin-top: 50px;
+    padding: 15px 0px;
+    font-size: 20px;
+}
+
+.footer .ft_header ul{
+    width: 220px;
+    
+}
+
+.footer .footer_content{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    position: relative;
+}
+
+.footer .footer_content .inf_logo{
+    display: flex;
+    justify-content: left;
+    padding: 12px 0px;
+}
+
+.footer .footer_content .inf_logo h1{
+
+    margin-top: 13px;
+    color: white;
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.footer .footer_content .contact{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.footer .footer_content .contact i{
+    margin-right: 5px;
+}
+
+.footer .footer_content li{
+    list-style: none;
+    height: 28px;
+}
+
+.footer .footer_content li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .footer_content li a:hover{
+    color: #337ab7;
+
+}
+
+.footer .footer_content .icon a{
+    padding-right: 15px;
+}
+
+.footer .footer_content .pay{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.footer .footer_content .logo_pay img{
+    background-color: #fff;
+}
+

@@ -1,0 +1,67 @@
+* {
+    margin: 0px auto;
+    padding: 0;
+  }
+
+  body{
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    background-image: url(../IMG/album3.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+.thanhtoan{
+    width: 900px;
+    height: 450px;
+    margin-top: 150px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+  .thanhtoan img{
+    width: 500px;
+    height: 450px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+.thanhtoan .infor{
+  width: 500px;
+  padding: 20px 30px;
+}
+
+.thanhtoan .infor h2{
+  border-bottom: 2px solid #1900ff;
+  font-size: 27px;
+  padding-bottom: 3px;
+}
+
+.thanhtoan .infor .text{
+  margin: 17px 0px;
+  font-size: 23px;
+}
+
+.thanhtoan .cost{
+  font-size: 30px;
+  font-weight: bolder;
+  color: #2377ff;
+}
+
+.thanhtoan .money{
+  font-weight: bold;
+}
+
+.infor button{
+  width: 200px;
+  height: 50px;
+  font-size: 30px;
+  background-color: #f7793c;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+}

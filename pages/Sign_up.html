@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+	<title>Tạo tài khoản</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="Sign_up.css">
+</head>
+<body>
+	<div class="to">
+		<div class="form">
+			<h2>Đăng Ký</h2>
+			<span class="material-icons-outlined">
+				flight_takeoff
+			</span>
+			<div class="text">
+				<h3>Tên đăng nhập</h3>
+				<input type="text" id="username">  
+			</div>
+			<div class="text">
+				<h3>Email</h3>
+				<input type="text" id="email"> 
+			</div>
+			<div class="text">
+				<h3>Mật khẩu</h3>
+				<input type="password" id="password"> 
+			</div>
+			<div class="text">
+				<h3>Nhập lại mật khẩu</h3>
+				<input type="password" id="cfpass"> 
+			</div> 
+			<div class="sign_up">
+				<button class="btn btn-SignUp" type="submit">Đăng ký</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let username = document.getElementById("username");
+		let email = document.getElementById("email");
+		let password = document.getElementById("password");
+		let cfpass = document.getElementById("cfpass");
+		let btnSignup = document.querySelector(".btn-SignUp");
+		let btnLogin = document.querySelector(".btn-SignUp");
+
+		function random(){
+			let x = Math.random() * 9;
+			return Math.round(x);
+		}
+		function chonCode(){
+			let t = "";
+			for (var i = 0; i < 6; i++) {
+				t += random();
+			}
+			console.log(t);
+			return t;
+		}
+		btnSignup.addEventListener("click", (e) => {
+		  e.preventDefault();
+			let user = {
+				username: username.value,
+				email: email.value,
+				password: password.value,
+			};
+			chonCode();
+			let json = JSON.stringify(user);
+			if (!username.value || !email.value || !password.value ||  !cfpass.value) {
+				alert("Vui lòng nhập đầy đủ thông tin");
+			} else if (cfpass.value != password.value) {
+				alert("Password và Confirm password không khớp");
+			}else {
+				localStorage.setItem(username.value, json);
+				alert("Đăng Ký Thành Công");
+			}
+		});
+	</script>
+</body>
+</html>

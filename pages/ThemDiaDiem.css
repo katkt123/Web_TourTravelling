@@ -1,0 +1,131 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    font-family: 'Open Sans',sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background-image: url(../IMG/album3.jpg);
+    background-size: 100%;
+    height: 1500px;
+    background-repeat: no-repeat;
+} 
+
+
+.form {
+    background-color: rgb(219, 238, 255);
+    width: 1000px;
+    margin-top: 100px;
+    border-radius: 20px;
+}
+h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 50px;
+    text-align: center;
+    color:  rgb(0, 238, 255);
+    text-shadow: 2px 3px 2px black;
+}
+
+.form h2{
+    text-align: center;
+}
+
+h3{   
+    display: block;
+    font-weight:lighter;
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+
+ .text{
+    margin: 10px 0px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    background: linear-gradient(to right, #fc00ff, #00dbde);
+    color: white;
+}
+button:hover{
+    background: linear-gradient(to right, #fc466b, #3f5efb); 
+} 
+
+
+.input_infor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 430px;
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 20px;
+}
+
+.infor .nhap{
+    margin: 22px 0px;
+}
+
+.nhap .mota{
+    width: 400px;
+    height: 100px;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+
+.infor .nhap input{
+    height: 35px;
+    width: 400px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+.input_infor .transport {
+    margin: 10px 0px;
+
+}
+
+.input_infor .transport label{
+    margin-right: 50px;
+
+}
+
+.input_infor .transport h3{
+    margin-bottom: 5px;
+}
+
+.input_infor .transport{
+    
+
+}
+
+.upload-container:before {
+    position: absolute;
+    bottom: 50px;
+    left: 245px;
+    content: " (or) Drag and Drop files here. ";
+    color: #3f8188;
+    font-weight: 900;
+}
+
+.upload-container input{
+    border:1px solid black;
+    text-align: center;
+    outline-offset: -10px;
+    padding: 40px 70px 40px 70px;
+}
+
+.upload-container .import_img{
+    display: flex;
+    justify-content: center;
+    content: "Drop file here. ";
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="gioHang.css">
+</head>
+<body>
+	
+		<div id="KhoVe">
+			<div class="box_ve">
+				<div class="address canh_le"><h3>Địa điểm</h3></div>
+				<div class="don_gia canh_le"><h3>Đơn giá</h3></div>
+				<div class="number canh_le"><h3>Số vé</h3></div>	
+				<div class="gia_ve canh_le"><h3>Giá</h3></div>
+				<div class="Thanhtoan canh_le"><h3>Thanh toán</h3></div>
+			</div>
+		</div>
+		<script type="module">
+			import { removeAccents,DataBD } from "../javascript/StartedData.js";
+
+			let khoVe = document.getElementById("KhoVe");
+			var headTB = "<div id='KhoVe'>";
+			var ctp = khoVe.outerHTML;
+			ctp = ctp.substr(headTB.length, khoVe.length);
+			ctp = ctp.substr(khoVe.length-6, khoVe.length);
+			var VoHang = JSON.parse(localStorage.getItem("Vohang"));
+
+			var DSVe = DataBD;
+
+			if (JSON.parse(localStorage.getItem("DSVe")) === null){
+				console.log("không tìm thấy");
+			} else {
+				var DSVeLS = JSON.parse(localStorage.getItem("DSVe"));
+				for (var i = 0;i < DSVeLS.length;i++){
+					DSVe.push(DSVeLS[i]);
+				}
+			}
+			if (VoHang){
+				for (var i = 0; i < DSVe.length; i++) {
+					var soVe = 0;
+					var tien = 0;
+					for (var j = 0; j < VoHang.length;j++){
+						if (removeAccents(DSVe[i].address) === VoHang[j]){
+							soVe++;
+						}
+					}
+					tien = soVe * Number(tachCham(DSVe[i].price));
+					if (soVe > 0)
+						ctp += hangVo(DSVe[i].IDDL ,DSVe[i].address, DSVe[i].price,soVe, tien);
+				}
+				khoVe.innerHTML = ctp;
+			}
+			function hangVo(IDD,str,oldPrice,num1,price){
+				return "<div class='box_ve'>" 
+					+		"<div class='address canh_le'>Du lịch " + str + "</div>"
+					+		"<div class='don_gia canh_le'>"+ oldPrice + "đ</div>"
+					+		" <div class='number canh_le'>Số vé: " + num1 + "</div>"
+					+		" <div class='gia_ve canh_le'>Giá: " + price + "đ</div>"
+					+		"<div class='Thanhtoan canh_le'>"
+					+			"<button class='tt' " + thanhTToanString(IDD) + "> Thanh toán </button>"
+					+			"<button class='xoa' " + XoaString(str) + ">Xóa</button>"
+					+		"</div>"			
+					+	"</div>";
+			}
+			function XoaString(str){
+				str = removeAccents(str);
+				var s = "onclick="+  String.fromCharCode(34) + "XoaDL('" + str + "') "+ String.fromCharCode(34); 
+				
+				return s;
+			}
+			function thanhTToanString(str){
+				var s = "onclick="+  String.fromCharCode(34) + "thanhTToan('" + str + "') "+ String.fromCharCode(34); 
+				
+				return s;
+			}
+			function tachCham(str){
+				for (var i = 0;i < str.length;i++){
+					if (str[i] === '.'){
+						str = str.replace('.', '');
+					}
+				}
+				return str;
+			}
+		</script>
+		<script type="text/javascript">
+			var soVeHien = JSON.parse(localStorage.getItem("SoVeHien"));
+			var VoHang = JSON.parse(localStorage.getItem("Vohang"));
+			function XoaDL(str){
+				for (var i = 0; i < VoHang.length;i++){
+					if (str === VoHang[i]){
+						VoHang.splice(i,1);
+						i--;
+						soVeHien--;
+					}
+				}
+				let json = JSON.stringify(VoHang);
+				localStorage.setItem("Vohang", json);
+				localStorage.setItem("SoVeHien", JSON.stringify(soVeHien));
+				setTimeout("location.reload(true);", 100);
+			}
+			function thanhTToan(str){
+				let json = JSON.stringify(str);
+
+				localStorage.setItem("thanhToan", json);
+				let url = "thanhToan.html";
+     			window.location.href = url;
+			}
+		</script>
+</body>
+</html>

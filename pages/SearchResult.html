@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="SearchResult.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">        <title>
+			Du lịch Travelling
+		</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<link rel="stylesheet" href="popup.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div class="bg_im">
+			<div class="header">
+				<div class="page">
+					<div class="menu">
+						<div class="logo">
+							<a href="../index.html"><img src="../IMG/Logo.png" alt="Logo" width="80px" height="80px"></a>
+							<a href="../index.html"><h1>Travelling</h1></a>
+						</div>
+						<div class="Nhap">								
+							<input type="text" placeholder="Search here..." id="searchInput">
+							<button class="searchIp"><img src="../Icon/search.png" width="20px" height="20px"></button>
+							<script type="module">
+								
+							</script>
+						</div>
+						<div class="contact">
+							<div class="call">
+							<span class="material-icons-outlined">
+								phone
+								</span>
+							</div>
+							<div class="phone">
+							+84 947 947 704
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="menu2">
+				<div class="page">
+					<div>
+						<ul>
+							<li><a href="../index.html">Trang chủ</a></li>
+							<li><a href="GioiThieu.html">Giới thiệu</a></li>
+							<li><a href="Hotsale.html">Tour khuyến mãi</a></li>
+							<li><a href="DichVu.html">Dịch vụ</a></li>
+							<li><a href="Lienhe.html">Liên hệ</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="tour">
+		<div class="page">
+			
+			<div>
+				<ul class="box" id="BoxDl">
+				</ul>
+			</div>
+		</div>
+		<script type="module">
+			let searchInput = document.getElementById("searchInput");
+			let searchBtn = document.querySelector(".searchIp");
+
+			function upSearch(){
+				if (searchInput.value != "" && searchInput.value != ""){
+					var strSearch = removeAccents(searchInput.value);
+					let timK = JSON.stringify(strSearch.toUpperCase());
+					localStorage.setItem("timkiem", timK);
+					searchInput.value = "";
+					let url = "SearchResult.html";
+     			 	window.location.href = url;
+				}
+			}
+			searchBtn.addEventListener("click", (e) => {
+				e.preventDefault();
+					upSearch();
+			});
+
+			$("#searchInput").on('keyup', function (e) {
+				if (e.key === 'Enter' || e.keyCode === 13) {
+					upSearch();
+				}
+			});
+
+
+			import {DataBD} from "../javascript/StartedData.js";
+
+			var DSVe = DataBD;
+
+			if (JSON.parse(localStorage.getItem("DSVe")) === null){
+				console.log("không tìm thấy");
+			} else {
+				var DSVeLS = JSON.parse(localStorage.getItem("DSVe"));
+				for (var i = 0;i < DSVeLS.length;i++){
+					DSVe.push(DSVeLS[i]);
+				}
+			}
+			var timkiem = "";
+			if (JSON.parse(localStorage.getItem("timkiem")) === null){
+				console.log("ko có dữ liệu 'tìm kiếm'");
+			} else {
+				timkiem = JSON.parse(localStorage.getItem("timkiem"));
+				console.log(timkiem);
+				//localStorage.setItem("timkiem", "");
+			}
+
+			let themVe = document.getElementById("BoxDl");
+			var cpTt = themVe.outerHTML;
+			cpTt = cpTt.substr(0, cpTt.length-5);
+			cpTt = cpTt.substr(27, cpTt.length);
+			for (var i = 0; i < DSVe.length; i++) {
+				let DiaDiem =  DSVe[i];
+
+				var adress = removeAccents(DiaDiem.address);
+				if (timkiem === adress.toUpperCase())
+					cpTt = cpTt + inDL(DiaDiem);
+			}
+			themVe.innerHTML = cpTt ;
+
+
+			function inDL(DD){
+				console.log(DD);
+				//const recentImageDataUrl = DD.pic;
+
+				var phuongTien = "";
+				if (DD.vehicle1)
+					phuongTien += PhuongTienMayBay();
+				if (DD.vehicle2)
+					phuongTien += PhuongTienXe();
+				if (DD.vehicle3)
+					phuongTien += PhuongTienTauThuy();
+
+				var str = "<li>"                    
+							+ "<div>"
+							+	"<div class='khung'>"
+							+		"<img src='"+  DD.pic  +"' alt='DuLich'>"
+							+	"</div>"
+							+	"<div class='text'>"
+							+		"<h3>Du lịch " + DD.address +"</h3>"
+							+		"<div class='money'>"
+							+		"	<p class='sale'>" + DD.price + "đ/khách</p>"
+							+		"	<div class='traffic'>"
+							+				phuongTien
+							+		"	</div>"
+							+		"</div>"
+							+		"<p class='cost'>" + DD.oldPrice + "</p>"
+							+		"<div class='start'>"
+							+		"	<i><span class='material-icons-outlined'>"
+							+		"		calendar_month"
+							+		"		</span></i>"
+							+		"	<p>Khởi hành: " + DD.start + "</p>"
+							+		"</div>"
+							+		"<div class='time'>"
+							+		"	<i><span class='material-icons-outlined'>"
+							+		"		schedule"
+							+		"		</span></i>"
+							+		"	<p>Thời gian: "+ DD.time + "</p>"
+							+		"</div>"
+							+		"</div>"
+							+		saleOrNot(DD.sale)
+							+		"<div class='set_product'>"
+							+		"	<div class='add'>"
+							+		"		<button class='btn btn-VaoGio' onclick='themVaoGio();'><span class='material-icons-outlined'>"
+							+		"			local_grocery_store"
+							+		"		</span></button>"
+							+		"	</div>"
+							+		"	<div class='buy'>"
+							+		"		<button>"
+							+		"			<p>Mua</p>"
+							+		"		</button>"
+							+		"	</div>"
+							+		"</div>"
+							+	"</div>"                   
+							+"</li>";
+				return str;
+			}
+			function PhuongTienMayBay(){
+				return "<i><span class='material-icons-outlined'>"
+				+		"	flight"
+				+		"</span></i>";
+			}
+			function PhuongTienXe(){
+				return "<i><span class='material-icons-outlined'>"
+				+		"	directions_car_filled"
+				+		"	</span></i>";
+			}
+			function PhuongTienTauThuy(){
+				return "<i><span class='material-icons-outlined'>"
+				+		"	directions_boat"
+				+		"	</span></i>";
+			}
+			function saleOrNot(a){
+				if (a > 0){
+					return "<div class='hot_sale'>"
+							+		"	<p>-"+ a +"%</p>"
+							+		"</div>";
+				} 
+				return "";
+			}
+
+			function removeAccents(str) {
+			  var AccentsMap = [
+			    "aàảãáạăằẳẵắặâầẩẫấậ",
+			    "AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬ",
+			    "dđ", "DĐ",
+			    "eèẻẽéẹêềểễếệ",
+			    "EÈẺẼÉẸÊỀỂỄẾỆ",
+			    "iìỉĩíị",
+			    "IÌỈĨÍỊ",
+			    "oòỏõóọôồổỗốộơờởỡớợ",
+			    "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢ",
+			    "uùủũúụưừửữứự",
+			    "UÙỦŨÚỤƯỪỬỮỨỰ",
+			    "yỳỷỹýỵ",
+			    "YỲỶỸÝỴ"    
+			  ];
+			  for (var i=0; i<AccentsMap.length; i++) {
+			    var re = new RegExp('[' + AccentsMap[i].substr(1) + ']', 'g');
+			    var char = AccentsMap[i][0];
+			    str = str.replace(re, char);
+			  }
+			  return str;
+			}
+		</script>
+	</body>
+</html>
